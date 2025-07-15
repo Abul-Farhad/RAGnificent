@@ -1,4 +1,4 @@
-```markdown
+
 # SimpleRAG - Easy Multi-Tool Chatbot Framework
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
@@ -22,7 +22,7 @@ SimpleRAG is a Python package that enables developers to quickly build powerful 
 
 ```bash
 pip install path/to/simple_rag-<version>-py3-none-any.whl
-```
+
 
 ## Quick Start
 
