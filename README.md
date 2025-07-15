@@ -22,7 +22,7 @@ SimpleRAG is a Python package that enables developers to quickly build powerful 
 
 ```bash
 pip install path/to/simple_rag-<version>-py3-none-any.whl
-
+```
 
 ## Quick Start
 
@@ -100,7 +100,7 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## License
 
 MIT License - See LICENSE file for details.
-```
+
 
 This version:
 1. Has all the same great content but in a more compact format
