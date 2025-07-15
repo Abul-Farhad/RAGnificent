@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: simple_rag
+Version: 0.1.0
+Summary: A simple RAG chatbot using LangChain and LangGraph
+Home-page: https://github.com/Abul-Farhad/simple-rag
+Author: K. M. Abul Farhad-Ibn-Alam
+Author-email: abulfarhad.ibnalam@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic
+Requires-Dist: langchain
+Requires-Dist: langchain-core
+Requires-Dist: langchain-community
+Requires-Dist: langchain-groq
+Requires-Dist: langgraph
+Requires-Dist: python-dotenv
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# simple_rag\nA simple RAG chatbot using LangChain and LangGraph.
