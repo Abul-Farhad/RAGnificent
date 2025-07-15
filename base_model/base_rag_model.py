@@ -6,17 +6,18 @@ from params.agent_params import AgentParams
 
 
 class BaseRagModel:
-    def __init__(self, params: AgentParams):
-        self.params = params
+    def __init__(self):
+        self.params: AgentParams
         self.checkpoint = MemorySaver()
+        self.config: dict
+        self.graph: Graph
+    def initiate_chatbot(self, params: AgentParams):
+        self.params = params
         self.config = {
             "configurable": {
                 "thread_id": self.params.thread_id,
             }
         }
-        self.graph: Graph
-
-    def initiate_chatbot(self):
         self.graph = Graph(params=self.params).setup_graph(checkpoint=self.checkpoint)
         return self
 

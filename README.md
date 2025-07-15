@@ -35,17 +35,18 @@ def add(x: int, y: int) -> int:
 
 tools = [add]
 
-chatbot = SimpleRag(
+rag = SimpleRag()
+chatbot = rag.initiate_chatbot(
     params=AgentParams(
         groq_model='deepseek-r1-distill-llama-70b',
         groq_api_key="your_api_key_here",
         system_prompt="You are a helpful AI assistant.",
         summary_prompt="Summarize the conversation concisely.",
-        thread_id=1,
+        thread_id="str",
         user_information={"Name": "User"},
         tools=tools
     )
-).initiate_chatbot()
+)
 
 while True:
     user_input = input("You: ")
@@ -59,14 +60,14 @@ while True:
 
 ### AgentParams
 
-| Parameter         | Type     | Description                                  | Required |
-|-------------------|----------|----------------------------------------------|----------|
-| `groq_model`      | str      | Groq model name                              | Yes      |
-| `groq_api_key`    | str      | Your Groq API key                            | Yes      |
-| `system_prompt`   | str      | Initial system prompt                        | Yes      |
-| `summary_prompt`  | str      | Prompt for conversation summaries            | Yes      |
-| `thread_id`       | int      | Conversation thread identifier               | Yes      |
-| `user_information`| dict     | User metadata for personalization            | No       |
+| Parameter         | Type           | Description                                  | Required |
+|-------------------|----------------|----------------------------------------------|----------|
+| `groq_model`      | str            | Groq model name                              | Yes      |
+| `groq_api_key`    | str            | Your Groq API key                            | Yes      |
+| `system_prompt`   | str            | Initial system prompt                        | Yes      |
+| `summary_prompt`  | str            | Prompt for conversation summaries            | Yes      |
+| `thread_id`       | str            | Conversation thread identifier               | Yes      |
+| `user_information`| dict           | User metadata for personalization            | No       |
 | `tools`          | list[callable] | Custom tools/functions to integrate      | No       |
 
 ## Adding Custom Tools

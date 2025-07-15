@@ -7,5 +7,5 @@ class AgentParams(BaseModel):
     system_prompt: str = 'You are a helpful AI assistant.'
     summary_prompt: str = 'You are a summarizer that condenses the conversation into a concise summary.'
     tools: Optional[List[Callable]] = Field(default_factory=list)
-    thread_id: int
+    thread_id: str
     user_information: Optional[dict[str, Any]] = Field(default_factory=dict)
