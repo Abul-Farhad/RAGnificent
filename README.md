@@ -1,5 +1,3 @@
-Here's the complete README.md content that you can directly copy and paste:
-
 ```markdown
 # SimpleRAG - Easy Multi-Tool Chatbot Framework
 
