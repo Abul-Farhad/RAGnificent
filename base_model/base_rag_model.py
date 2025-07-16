@@ -11,6 +11,7 @@ class BaseRagModel:
         self.checkpoint = MemorySaver()
         self.config: dict
         self.graph: Graph
+
     def initiate_chatbot(self, params: AgentParams):
         self.params = params
         self.config = {

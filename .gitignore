@@ -1,3 +1,7 @@
 .venv/
 .env
 main.py
+.idea/
+setup.py
+pyproject.toml
+simple_rag.egg-info

@@ -1,44 +1,54 @@
 Metadata-Version: 2.4
 Name: simple_rag
-Version: 0.1.0
-Summary: A simple RAG chatbot using LangChain and LangGraph
+Version: 0.2.0
+Summary: A simple RAG chatbot supporting multiple LLM providers
 Home-page: https://github.com/Abul-Farhad/simple-rag
 Author: K. M. Abul Farhad-Ibn-Alam
 Author-email: abulfarhad.ibnalam@gmail.com
+Project-URL: Source, https://github.com/Abul-Farhad/simple-rag
+Keywords: llm chatbot rag openai groq gemini
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
-Requires-Dist: pydantic
-Requires-Dist: langchain
-Requires-Dist: langchain-core
-Requires-Dist: langchain-community
-Requires-Dist: langchain-groq
-Requires-Dist: langgraph
-Requires-Dist: python-dotenv
+Requires-Dist: pydantic>=2.0
+Requires-Dist: langchain>=0.1.0
+Requires-Dist: langchain-core>=0.1.0
+Requires-Dist: langchain-community>=0.0.1
+Requires-Dist: langchain-groq>=0.1.0
+Requires-Dist: langchain-openai>=0.0.1
+Requires-Dist: langgraph>=0.0.1
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: httpx>=0.25.0
 Dynamic: author
 Dynamic: author-email
 Dynamic: classifier
 Dynamic: description
 Dynamic: description-content-type
 Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
 Dynamic: requires-dist
 Dynamic: requires-python
 Dynamic: summary
 
-
 # SimpleRAG - Easy Multi-Tool Chatbot Framework
 
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![RAG](https://img.shields.io/badge/arch-RAG-ff69b4.svg)
+![LLM Compatible](https://img.shields.io/badge/LLM-OpenAI_Compatible-blueviolet.svg)
 
-SimpleRAG is a Python package that enables developers to quickly build powerful chatbots with seamless tool integration and Retrieval-Augmented Generation (RAG) capabilities.
+SimpleRAG is a Python package that enables developers to quickly build powerful chatbots with seamless tool integration and Retrieval-Augmented Generation (RAG) capabilities, supporting any OpenAI-compatible LLM.
 
 ## Features
 
+- **Multi-LLM Support** - Works with Groq, OpenAI, Gemini, and any OpenAI-compatible API
 - **Easy Tool Integration** - Add custom functions as tools with minimal code
-- **Multi-Model Support** - Compatible with Groq's high-performance LLMs
+- **Flexible Configuration** - Support for both cloud and self-hosted LLMs
 - **Conversation Management** - Built-in thread tracking and user context
 - **Prompt Customization** - Flexible system and summary prompts
 - **Lightweight** - Minimal dependencies, maximum functionality
@@ -56,6 +66,7 @@ pip install path/to/simple_rag-<version>-py3-none-any.whl
 
 ```python
 from simple_rag import SimpleRag, AgentParams
+import os
 
 def add(x: int, y: int) -> int:
     """Add two numbers together."""
@@ -63,20 +74,23 @@ def add(x: int, y: int) -> int:
 
 tools = [add]
 
-chatbot = SimpleRag(
+# For OpenAI-compatible endpoints
+rag = SimpleRag()
+chatbot = rag.initiate_chatbot(
     params=AgentParams(
-        groq_model='deepseek-r1-distill-llama-70b',
-        groq_api_key="your_api_key_here",
+        model="gpt-3.5-turbo",  # Or any other model
+        api_key="your_api_key",
+        base_url="https://api.openai.com/v1",   # Or your custom endpoint
         system_prompt="You are a helpful AI assistant.",
         summary_prompt="Summarize the conversation concisely.",
-        thread_id=1,
-        user_information={"Name": "User"},
-        tools=tools
+        thread_id='1',
+        tools=tools,    # Optional
+        temperature=0.7 # Optional
     )
-).initiate_chatbot()
+)
 
 while True:
-    user_input = input("You: ")
+    user_input = input("You (q to quit): ")
     if user_input.lower() == 'q':
         break
     response = chatbot.run(messages=user_input)
@@ -87,19 +101,26 @@ while True:
 
 ### AgentParams
 
-| Parameter         | Type     | Description                                  | Required |
-|-------------------|----------|----------------------------------------------|----------|
-| `groq_model`      | str      | Groq model name                              | Yes      |
-| `groq_api_key`    | str      | Your Groq API key                            | Yes      |
-| `system_prompt`   | str      | Initial system prompt                        | Yes      |
-| `summary_prompt`  | str      | Prompt for conversation summaries            | Yes      |
-| `thread_id`       | int      | Conversation thread identifier               | Yes      |
-| `user_information`| dict     | User metadata for personalization            | No       |
-| `tools`          | list[callable] | Custom tools/functions to integrate      | No       |
+| Parameter         | Type           | Description                                  | Required |
+|-------------------|----------------|----------------------------------------------|----------|
+| `model`           | str            | Model name (e.g. "gpt-3.5-turbo")           | Yes      |
+| `api_key`         | str            | Your API key                                | Yes      |
+| `base_url`        | str            | API base URL (default: OpenAI)              | No       |
+| `system_prompt`   | str            | Initial system prompt                       | Yes      |
+| `summary_prompt`  | str            | Prompt for conversation summaries           | Yes      |
+| `thread_id`       | str            | Conversation thread identifier              | Yes      |
+| `user_information`| dict           | User metadata for personalization           | No       |
+| `tools`          | list[callable] | Custom tools/functions to integrate         | No       |
+
+## Supported LLM Providers
+
+- OpenAI (including Azure OpenAI)
+- Groq
+- Gemini
+- Any OpenAI-compatible API (LocalAI, vLLM, etc.)
+- Anthropic Claude (via OpenAI compatibility layer)
 
 ## Adding Custom Tools
-
-Simply define Python functions with type hints and docstrings, then pass them in the `tools` list:
 
 ```python
 def multiply(a: int, b: int) -> int:
@@ -115,10 +136,10 @@ tools = [multiply, get_weather]
 
 ## Best Practices
 
-1. Always include clear docstrings for your tools
-2. Use type hints for better tool understanding
-3. Keep system prompts concise but descriptive
-4. Rotate API keys for security
+1. Use environment variables for API keys
+2. Include clear docstrings for your tools
+3. Use type hints for better tool understanding
+4. Keep system prompts concise but descriptive
 5. Handle sensitive user information appropriately
 
 ## Contributing
@@ -128,11 +149,3 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## License
 
 MIT License - See LICENSE file for details.
-
-
-This version:
-1. Has all the same great content but in a more compact format
-2. Maintains all the important sections
-3. Keeps the code blocks and tables properly formatted
-4. Uses simpler emoji formatting for better compatibility
-5. Is ready to paste directly into your GitHub README.md file
