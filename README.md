@@ -1,4 +1,4 @@
-# SimpleRAG - Easy Multi-Tool Chatbot Framework
+# SimpleRAG - Easy Multi-Tool Chatbot Toolkit
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
