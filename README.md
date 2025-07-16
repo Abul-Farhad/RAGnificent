@@ -28,7 +28,7 @@ pip install path/to/simple_rag-<version>-py3-none-any.whl
 ## Quick Start
 
 ```python
-from simple_rag import SimpleRag, AgentParams
+from simple_rag import SimpleChatAI, AgentParams
 import os
 
 def add(x: int, y: int) -> int:
@@ -38,7 +38,7 @@ def add(x: int, y: int) -> int:
 tools = [add]
 
 # For OpenAI-compatible endpoints
-rag = SimpleRag()
+rag = SimpleChatAI()
 chatbot = rag.initiate_chatbot(
     params=AgentParams(
         model="gpt-3.5-turbo",  # Or any other model
@@ -104,11 +104,3 @@ tools = [multiply, get_weather]
 3. Use type hints for better tool understanding
 4. Keep system prompts concise but descriptive
 5. Handle sensitive user information appropriately
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-MIT License - See LICENSE file for details.
