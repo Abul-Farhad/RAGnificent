@@ -1,18 +1,18 @@
-# SimpleRAG - Easy Multi-Tool Chatbot Toolkit
+# RAGnificent - Easy Multi-Tool Chatbot Toolkit
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![RAG](https://img.shields.io/badge/arch-RAG-ff69b4.svg)
 ![LLM Compatible](https://img.shields.io/badge/LLM-OpenAI_Compatible-blueviolet.svg)
 
-SimpleRAG is a Python package that enables developers to quickly build powerful chatbots with seamless tool integration and Retrieval-Augmented Generation (RAG) capabilities, supporting any OpenAI-compatible LLM.
+RAGnificent is a Python package that enables developers to quickly build powerful chatbots with seamless tool integration and Retrieval-Augmented Generation (RAG) capabilities, supporting any OpenAI-compatible LLM.
 
 ## Features
 
 - **Multi-LLM Support** - Works with Groq, OpenAI, Gemini, and any OpenAI-compatible API
 - **Easy Tool Integration** - Add custom functions as tools with minimal code
 - **Flexible Configuration** - Support for both cloud and self-hosted LLMs
-- **Conversation Management** - Built-in thread tracking and user context
+- **Conversation Management** - Efficient short-term memory management with summarization technique
 - **Prompt Customization** - Flexible system and summary prompts
 - **Lightweight** - Minimal dependencies, maximum functionality
 
@@ -22,33 +22,35 @@ SimpleRAG is a Python package that enables developers to quickly build powerful 
 2. Install using pip:
 
 ```bash
-pip install path/to/simple_rag-<version>-py3-none-any.whl
+pip install path/to/RAGnificent-<version>-py3-none-any.whl
 ```
 
 ## Quick Start
 
 ```python
-from simple_rag import SimpleChatAI, AgentParams
+from RAGnificent import ChatAI, AgentParams
 import os
+
 
 def add(x: int, y: int) -> int:
     """Add two numbers together."""
     return x + y
 
+
 tools = [add]
 
 # For OpenAI-compatible endpoints
-rag = SimpleChatAI()
+rag = ChatAI()
 chatbot = rag.initiate_chatbot(
     params=AgentParams(
         model="gpt-3.5-turbo",  # Or any other model
         api_key="your_api_key",
-        base_url="https://api.openai.com/v1",   # Or your custom endpoint
+        base_url="https://api.openai.com/v1",  # Or your custom endpoint
         system_prompt="You are a helpful AI assistant.",
         summary_prompt="Summarize the conversation concisely.",
         thread_id='1',
-        tools=tools,    # Optional
-        temperature=0.7 # Optional
+        tools=tools,  # Optional
+        temperature=0.7  # Optional
     )
 )
 
