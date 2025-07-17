@@ -16,11 +16,10 @@ RAGnificentAI is a Python package that enables developers to quickly build power
 
 ## Installation
 
-1. Download the package from GitHub
-2. Install using pip:
+1. Install using pip:
 
 ```bash
-pip install path/to/RAGnificentAI-<version>-py3-none-any.whl
+pip install RAGnificentAI
 ```
 
 ## Quick Start
