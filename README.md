@@ -1,7 +1,6 @@
 # RAGnificentAI - Your Magnificent RAG-Powered Chatbot Toolkit
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![RAG](https://img.shields.io/badge/arch-RAG-ff69b4.svg)
 ![LLM Compatible](https://img.shields.io/badge/LLM-OpenAI_Compatible-blueviolet.svg)
 
@@ -11,7 +10,6 @@ RAGnificentAI is a Python package that enables developers to quickly build power
 
 - **LLM Agnostic** - Works with Groq, OpenAI, Gemini, and any OpenAI-compatible API
 - **Easy Tool Integration** - Add custom functions as tools with minimal code
-- **Flexible Configuration** - Support for both cloud and self-hosted LLMs
 - **Conversation Management** - Efficient short-term memory management with summarization technique
 - **Prompt Customization** - Flexible system and summary prompts
 - **Lightweight** - Minimal dependencies, maximum functionality
@@ -29,8 +27,6 @@ pip install path/to/RAGnificentAI-<version>-py3-none-any.whl
 
 ```python
 from RAGnificentAI import ChatAI, AgentParams
-import os
-
 
 def add(x: int, y: int) -> int:
     """Add two numbers together."""
