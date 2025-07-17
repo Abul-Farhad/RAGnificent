@@ -1,4 +1,4 @@
-# RAGnificent - Easy Multi-Tool Chatbot Toolkit
+# RAGnificent - Your Magnificent RAG-Powered Chatbot Toolkit
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
@@ -7,9 +7,9 @@
 
 RAGnificent is a Python package that enables developers to quickly build powerful chatbots with seamless tool integration and Retrieval-Augmented Generation (RAG) capabilities, supporting any OpenAI-compatible LLM.
 
-## Features
+## Why RAGnificent?
 
-- **Multi-LLM Support** - Works with Groq, OpenAI, Gemini, and any OpenAI-compatible API
+- **LLM Agnostic** - Works with Groq, OpenAI, Gemini, and any OpenAI-compatible API
 - **Easy Tool Integration** - Add custom functions as tools with minimal code
 - **Flexible Configuration** - Support for both cloud and self-hosted LLMs
 - **Conversation Management** - Efficient short-term memory management with summarization technique
@@ -106,3 +106,21 @@ tools = [multiply, get_weather]
 3. Use type hints for better tool understanding
 4. Keep system prompts concise but descriptive
 5. Handle sensitive user information appropriately
+
+
+## License
+
+**RAGnificent** is licensed under the **RAGnificent-License**:  
+
+```text
+Copyright (c) 2025 [K. M. Abul Farhad-Ibn-Alam]
+
+Permission is hereby granted to any person obtaining a copy of this software
+and associated documentation files (the "Software") to use, modify, and distribute
+the Software for any purpose, subject to the following conditions:
+
+1. Redistributions must retain this copyright notice.
+2. Commercial use requires written permission from the author.
+3. The author is not liable for any damages arising from Software use.
+
+All rights not expressly granted are reserved by the author.
