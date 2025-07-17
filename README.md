@@ -1,13 +1,13 @@
-# RAGnificent - Your Magnificent RAG-Powered Chatbot Toolkit
+# RAGnificentAI - Your Magnificent RAG-Powered Chatbot Toolkit
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![RAG](https://img.shields.io/badge/arch-RAG-ff69b4.svg)
 ![LLM Compatible](https://img.shields.io/badge/LLM-OpenAI_Compatible-blueviolet.svg)
 
-RAGnificent is a Python package that enables developers to quickly build powerful chatbots with seamless tool integration and Retrieval-Augmented Generation (RAG) capabilities, supporting any OpenAI-compatible LLM.
+RAGnificentAI is a Python package that enables developers to quickly build powerful chatbots with seamless tool integration and Retrieval-Augmented Generation (RAG) capabilities, supporting any OpenAI-compatible LLM.
 
-## Why RAGnificent?
+## Why RAGnificentAI?
 
 - **LLM Agnostic** - Works with Groq, OpenAI, Gemini, and any OpenAI-compatible API
 - **Easy Tool Integration** - Add custom functions as tools with minimal code
@@ -22,13 +22,13 @@ RAGnificent is a Python package that enables developers to quickly build powerfu
 2. Install using pip:
 
 ```bash
-pip install path/to/RAGnificent-<version>-py3-none-any.whl
+pip install path/to/RAGnificentAI-<version>-py3-none-any.whl
 ```
 
 ## Quick Start
 
 ```python
-from RAGnificent import ChatAI, AgentParams
+from RAGnificentAI import ChatAI, AgentParams
 import os
 
 
@@ -110,7 +110,7 @@ tools = [multiply, get_weather]
 
 ## License
 
-**RAGnificent** is licensed under the **RAGnificent-License**:  
+**RAGnificentAI** is licensed under the **RAGnificentAI Custom License**:  
 
 ```text
 Copyright (c) 2025 [K. M. Abul Farhad-Ibn-Alam]
