@@ -59,5 +59,5 @@ class SummarizerNode(BaseAgentNode):
         user_information = state.get("user_information", {})
         response = self.llm.invoke({"system": system_message, "messages": state["messages"] + [HumanMessage(content=summary_message)], "user_information": user_information})
         delete_messages = [RemoveMessage(id=m.id) for m in state["messages"][:-2]]
-        print("delete_messages:", delete_messages)
+        # print("delete_messages:", delete_messages)
         return {"messages": delete_messages, "summary": response.content}

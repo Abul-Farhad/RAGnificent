@@ -7,3 +7,4 @@ langchain-openai
 langgraph
 python-dotenv
 setuptools
+click

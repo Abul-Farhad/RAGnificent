@@ -7,3 +7,5 @@ pyproject.toml
 simple_rag.egg-info
 dist/
 .pypirc
+*.yaml
+test.py

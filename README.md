@@ -3,6 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![RAG](https://img.shields.io/badge/arch-RAG-ff69b4.svg)
 ![LLM Compatible](https://img.shields.io/badge/LLM-OpenAI_Compatible-blueviolet.svg)
+![CLI Enabled](https://img.shields.io/badge/CLI-Enabled-green.svg)
 
 RAGnificentAI is a Python package that enables developers to quickly build powerful chatbots with seamless tool integration and Retrieval-Augmented Generation (RAG) capabilities, supporting any OpenAI-compatible LLM.
 
@@ -65,7 +66,7 @@ while True:
 |-------------------|----------------|----------------------------------------------|----------|
 | `model`           | str            | Model name (e.g. "gpt-3.5-turbo")           | Yes      |
 | `api_key`         | str            | Your API key                                | Yes      |
-| `base_url`        | str            | API base URL (default: OpenAI)              | No       |
+| `base_url`        | str            | API base URL (default: OpenAI)              | Yes      |
 | `system_prompt`   | str            | Initial system prompt                       | Yes      |
 | `summary_prompt`  | str            | Prompt for conversation summaries           | Yes      |
 | `thread_id`       | str            | Conversation thread identifier              | Yes      |
@@ -94,6 +95,28 @@ def get_weather(city: str) -> str:
 tools = [multiply, get_weather]
 ```
 
+## New CLI Interface
+**Example Workflow:**
+```bash
+# First-time setup
+ragnificentai configure
+
+# Start chatting (uses saved config)
+ragnificentai chat
+
+# Override specific settings
+ragnificentai chat --model gpt-4 --thread-id special-convo
+```
+
+### CLI Features
+
+| Command       | Description                          | Options                              |
+|---------------|--------------------------------------|--------------------------------------|
+| `chat`        | Start interactive chat session       | `--model`, `--api-key`, `--base-url` |
+| `configure`   | Save default configuration           | (interactive wizard)                 |
+| `version`     | Show package version                 | None                                 |
+
+
 ## Best Practices
 
 1. Use environment variables for API keys
@@ -119,3 +142,7 @@ the Software for any purpose, subject to the following conditions:
 3. The author is not liable for any damages arising from Software use.
 
 All rights not expressly granted are reserved by the author.
+
+Here's the updated README with the new CLI feature prominently featured, while maintaining all existing content:
+```
+---
