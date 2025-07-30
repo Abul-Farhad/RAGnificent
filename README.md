@@ -142,7 +142,5 @@ the Software for any purpose, subject to the following conditions:
 3. The author is not liable for any damages arising from Software use.
 
 All rights not expressly granted are reserved by the author.
-
-Here's the updated README with the new CLI feature prominently featured, while maintaining all existing content:
 ```
 ---
